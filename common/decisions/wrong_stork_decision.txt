@@ -1,0 +1,149 @@
+﻿wrong_stork_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+
+	title = "Adopt an Heir"
+    desc = "Adopt a child from your realm"
+    selection_tooltip = "This will start the adoption process"
+    confirm_text = "Is that a mountain of paperwork?"
+
+	is_shown = {
+		is_ruler = yes
+	}
+
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+	}
+	effect = {
+		custom_tooltip = "You gather your council to search the realm"
+		trigger_event = wrong_stork.0001
+		stress_impact = {
+			base = minor_stress_impact_gain
+			compassionate = minor_stress_impact_loss
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+spawn_female_child = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	title = "Spawn Female Child"
+    desc = "Spawns a female Child."
+    selection_tooltip = "This will give you a female Child."
+    confirm_text = "Ok"
+
+	is_shown = {
+		debug_only = yes
+	}
+
+	effect = {
+		if = {
+			limit = { is_female = yes }
+			save_scope_as = mother
+			scope:spouse = { save_scope_as = father }
+		}
+		else = {
+			save_scope_as = father
+			scope:spouse = { save_scope_as = mother }
+		}
+
+		create_character = {
+			age = { 1 15 }
+			gender_female_chance = 100
+			trait = wild_oat
+			mother = scope:mother
+			father = scope:father
+			dynasty = inherit
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+spawn_male_child = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	title = "Spawn Male Child"
+    desc = "Spawns a male child."
+    selection_tooltip = "This will give you a male child."
+	confirm_text = "Ok"
+	
+	is_shown = {
+		debug_only = yes
+	}
+
+	effect = {
+		if = {
+			limit = { is_female = yes }
+			save_scope_as = mother
+			scope:spouse = { save_scope_as = father }
+		}
+		else = {
+			save_scope_as = father
+			scope:spouse = { save_scope_as = mother }
+		}
+	
+		create_character = {
+			age = { 1 15 }
+			gender_male_chance = 100
+			trait = wild_oat
+			mother = scope:mother
+			father = scope:father
+			dynasty = inherit
+		}
+	}
+
+	ai_check_interval = 0
+}
+
+spawn_wrong_stork = {
+	picture = "gfx/interface/illustrations/decisions/decision_personal_religious.dds"
+	title = "Spawn the wrong stork"
+    desc = "Spawns the wrong stork."
+    selection_tooltip = "Oh dear..."
+	confirm_text = "Hmmm"
+	
+	is_shown = {
+		debug_only = yes
+	}
+
+	effect = {
+		if = {
+			limit = {
+				is_female = yes
+			}
+			save_scope_as = mother
+			scope:spouse = {
+				save_scope_as = father
+			}
+		}
+		else = {
+			save_scope_as = father
+			scope:spouse = {
+				save_scope_as = mother
+			}
+		}
+		create_character = {
+			age = { 1 15 }
+			gender_female_chance = 50
+			trait = wild_oat
+			random_traits_list = {
+				count = 2
+				just = { weight = { base = 10 } }
+				intellect_good_2 = { weight = { base = 20 } }
+				divine_blood = { weight = { base = 2 } }
+				patient = { weight = { base = 10 } }
+				compassionate = { weight = { base = 10 } }
+				lunatic_1 = { weight = { base = 20 } }
+			}
+			random_traits = yes
+	
+			faith = norse_pagan
+			culture = culture:han
+			mother = scope:mother
+			father = scope:father
+			dynasty = inherit
+		}
+	}
+
+	ai_check_interval = 0
+}

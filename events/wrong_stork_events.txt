@@ -1,0 +1,165 @@
+﻿namespace = wrong_stork
+wrong_stork.0001 = {
+	desc = "We have found 4 places that have children for adoption."
+	theme = family
+	override_background = {
+		event_background = study
+	}
+	# Gold
+	option = { 
+		# name = wrong_stork.0001.a
+		name = "I renovate a local charity..."
+		# desc = "I renovate a local charity..."
+		# selection_tooltip = "I renovate a local charity..."
+		remove_short_term_gold = medium_gold_value
+		stress_impact = {
+			greedy = medium_stress_impact_gain
+			compassionate = minor_stress_impact_loss
+			generous = medium_stress_impact_loss
+		}
+		trigger_event = wrong_stork.0101
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_vengefulness = 0.5
+			}
+		}
+	}
+
+	# Prestige
+	option = { 
+		# name = wrong_stork.0001.b
+		name = "I visit a local brothel..."
+		duel = {
+			skill = diplomacy
+			value = medium_skill_rating
+			30 = {
+				desc = "Nothing out of the ordinary"
+				trigger_event = wrong_stork.0101
+			}
+			10 = {
+				desc = "Somthing is amiss..."
+				trigger_event = wrong_stork.1001
+			}
+		}
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_greed = 0.5
+			}
+		}
+	}
+
+	# Piety
+	option = { 
+		# name = wrong_stork.0001.c
+		name = "I petition my preists..."
+		# desc = "I petition my preists..."
+		add_piety = medium_piety_loss
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			humble = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+		}
+		trigger_event = wrong_stork.0101
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_rationality = 0.5
+			}
+		}
+	}
+
+	# Renown
+	option = { 
+		# name = wrong_stork.0001.d
+		name = "I leverage my family name..."
+		# desc = "I leverage my family name..."
+		add_dynasty_prestige = medium_dynasty_prestige_loss
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			humble = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+		}
+		trigger_event = wrong_stork.0101
+		ai_chance = {
+			base = 50
+			ai_value_modifier = {
+				ai_vengefulness = 0.5
+			}
+		}
+	}
+}
+
+# Spawn Children
+wrong_stork.0101 = {
+	desc = "Spawns a child."
+	immediate = {
+		if = {
+			limit = {
+				is_female = yes
+			}
+			save_scope_as = mother
+			scope:spouse = {
+				save_scope_as = father
+			}
+		}
+		else = {
+			save_scope_as = father
+			scope:spouse = {
+				save_scope_as = mother
+			}
+		}
+		create_character = {
+			age = { 1 15 }
+			gender_female_chance = 50
+			trait = wild_oat
+			mother = scope:mother
+			father = scope:father
+			dynasty = inherit
+		}
+	}
+}
+
+wrong_stork.1001 = {
+	desc = "Wrong Stork."
+
+	immediate = {
+		if = {
+			limit = {
+				is_female = yes
+			}
+			save_scope_as = mother
+			scope:spouse = {
+				save_scope_as = father
+			}
+		}
+		else = {
+			save_scope_as = father
+			scope:spouse = {
+				save_scope_as = mother
+			}
+		}
+		create_character = {
+			age = { 1 15 }
+			gender_female_chance = 50
+			trait = wild_oat
+			random_traits_list = {
+				count = 2
+				just = { weight = { base = 10 } }
+				intellect_good_2 = { weight = { base = 20 } }
+				divine_blood = { weight = { base = 2 } }
+				patient = { weight = { base = 10 } }
+				compassionate = { weight = { base = 10 } }
+				lunatic_1 = { weight = { base = 20 } }
+			}
+			random_traits = yes
+	
+			faith = norse_pagan
+			culture = culture:han
+			mother = scope:mother
+			father = scope:father
+			dynasty = inherit
+		}
+	}
+}
