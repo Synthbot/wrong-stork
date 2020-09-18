@@ -14,8 +14,8 @@ wrong_stork.0001 = {
 		remove_short_term_gold = medium_gold_value
 		stress_impact = {
 			greedy = medium_stress_impact_gain
-			compassionate = minor_stress_impact_loss
 			generous = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
 		}
 		trigger_event = wrong_stork.0101
 		ai_chance = {
@@ -30,6 +30,12 @@ wrong_stork.0001 = {
 	option = { 
 		# name = wrong_stork.0001.b
 		name = "I visit a local brothel..."
+		add_prestige = medium_prestige_loss
+		stress_impact = {
+			arrogant = medium_stress_impact_gain
+			humble = medium_stress_impact_loss
+			compassionate = minor_stress_impact_loss
+		}
 		duel = {
 			skill = diplomacy
 			value = medium_skill_rating
@@ -38,7 +44,7 @@ wrong_stork.0001 = {
 				trigger_event = wrong_stork.0101
 			}
 			10 = {
-				desc = "Somthing is amiss..."
+				desc = "Something is amiss..."
 				trigger_event = wrong_stork.1001
 			}
 		}
@@ -57,8 +63,8 @@ wrong_stork.0001 = {
 		# desc = "I petition my preists..."
 		add_piety = medium_piety_loss
 		stress_impact = {
-			arrogant = medium_stress_impact_gain
-			humble = medium_stress_impact_loss
+			zealous = medium_stress_impact_gain
+			cynical = medium_stress_impact_loss
 			compassionate = minor_stress_impact_loss
 		}
 		trigger_event = wrong_stork.0101
