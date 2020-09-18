@@ -7,8 +7,11 @@ Created to address a lack of historical accuracy, this mod allows you to adopt a
 
 Not Ironman Compatible
 
-# [Current Release: v0.1.0](https://github.com/Synthbot/wrong-stork/releases)
+# [Current Release: v0.1.1](https://github.com/Synthbot/wrong-stork/releases)
 
+0.1.1
+- Fixed free prestige option
+0.1.0
 - Intial Release!
 - Has a decision to start the adoption event chain
 - 4 options of payment for adoption for all 4 game currencies

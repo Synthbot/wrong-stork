@@ -30,21 +30,27 @@ wrong_stork.0001 = {
 	option = { 
 		# name = wrong_stork.0001.b
 		name = "I visit a local brothel..."
-		add_prestige = medium_prestige_loss
-		stress_impact = {
-			arrogant = medium_stress_impact_gain
-			humble = medium_stress_impact_loss
-			compassionate = minor_stress_impact_loss
-		}
 		duel = {
 			skill = diplomacy
 			value = medium_skill_rating
 			30 = {
 				desc = "Nothing out of the ordinary"
+				add_prestige = medium_prestige_loss
+				stress_impact = {
+					arrogant = medium_stress_impact_gain
+					humble = medium_stress_impact_loss
+					compassionate = minor_stress_impact_loss
+				}
 				trigger_event = wrong_stork.0101
 			}
 			10 = {
 				desc = "Something is amiss..."
+				add_prestige = medium_prestige_loss
+				stress_impact = {
+					arrogant = medium_stress_impact_gain
+					humble = medium_stress_impact_loss
+					compassionate = minor_stress_impact_loss
+				}
 				trigger_event = wrong_stork.1001
 			}
 		}

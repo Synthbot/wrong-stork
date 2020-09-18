@@ -5,7 +5,7 @@ Created to address a lack of historical accuracy, this mod allows you to adopt a
 
 Not Ironman Compatible
 
-[h1][url=https://github.com/Synthbot/wrong-stork/releases]Current Release: v0.1.0[/url][/h1]
+[h1][url=https://github.com/Synthbot/wrong-stork/releases]Current Release: v0.1.1[/url][/h1]
 [LIST]
 [*]Intial Release!
 [*]Has a decision to start the adoption event chain
