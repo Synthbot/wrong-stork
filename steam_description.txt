@@ -1,0 +1,13 @@
+[h1]Wrong Stork[/h1]
+A CKIII Mod for Adoption
+
+Created to address a lack of historical accuracy, this mod allows you to adopt as many children as you can afford!
+
+Not Ironman Compatible
+
+[h1][url=https://github.com/Synthbot/wrong-stork/releases]Current Release: v0.1.0[/url][/h1]
+[LIST]
+[*]Intial Release!
+[*]Has a decision to start the adoption event chain
+[*]4 options of payment for adoption for all 4 game currencies
+[/LIST]
